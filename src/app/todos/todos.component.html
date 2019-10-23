@@ -6,10 +6,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedTodo">
-  <h2>{{selectedTodo.title}} Detail</h2>
-  <div>
-    <label>Description:</label>
-    <p>{{selectedTodo.description}}</p>
-  </div>
-</div>
+<app-todo-detail [todo]="selectedTodo"></app-todo-detail>
