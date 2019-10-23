@@ -21,10 +21,22 @@ export class TodosComponent implements OnInit {
 
   getTodos(): void {
     this.todoService.getTodos()
-      .subscribe(todos => this.todos = todos);;
+      .subscribe(todos => this.todos = todos);
   }
 
   onSelect(todo: Todo): void {
     this.selectedTodo = todo;
+  }
+
+  add(title: string, description: string): void {
+    title = title.trim();
+    if (!title) {
+      return ;
+    }
+
+    this.todoService.addTodo({title, description} as Todo)
+      .subscribe(todo => {
+        this.todos.push(todo);
+      });
   }
 }

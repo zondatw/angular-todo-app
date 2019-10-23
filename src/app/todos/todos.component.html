@@ -8,3 +8,21 @@
     <p>{{todo.description}}</p>
   </li>
 </ul>
+
+<div>
+  <h4> Add new Todo </h4>
+  <p>
+    <label> Title:
+      <input #todoTitle />
+    </label>
+  </p>
+  <p>
+    <label> Description:
+      <input #todoDescription />
+    </label>
+  </p>
+
+  <button (click)="add(todoTitle.value, todoDescription.value); todoTitle.value=''; todoDescription.value=''">
+    add
+  </button>
+</div>

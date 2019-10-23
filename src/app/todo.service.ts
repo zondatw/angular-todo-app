@@ -6,6 +6,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Todo } from './todo';
 
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +19,7 @@ export class TodoService {
   constructor(
     private http: HttpClient
   ) { }
+
 
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todosUrl).pipe(
@@ -30,12 +35,14 @@ export class TodoService {
   }
 
   updateTodo (todo: Todo): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
     return this.http.put(this.todosUrl, todo, httpOptions).pipe(
       catchError(this.handleError<any>('updateTodo'))
+    );
+  }
+
+  addTodo (todo: Todo): Observable<any> {
+    return this.http.post<Todo>(this.todosUrl, todo, httpOptions).pipe(
+      catchError(this.handleError<any>('addTodo'))
     );
   }
 
