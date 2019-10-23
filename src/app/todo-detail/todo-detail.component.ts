@@ -27,4 +27,8 @@ export class TodoDetailComponent implements OnInit {
     this.todoService.getTodo(id)
       .subscribe(todo => this.todo = todo);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
