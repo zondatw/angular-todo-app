@@ -1,7 +1,15 @@
 <h2>Todo List</h2>
 <ul class="todos">
-  <li *ngFor="let todo of todos">
+  <li *ngFor="let todo of todos" (click)="onSelect(todo)">
     <h4>{{todo.title}}</h4>
     <p>{{todo.description}}</p>
   </li>
 </ul>
+
+<div *ngIf="selectedTodo">
+  <h2>{{selectedTodo.title}} Detail</h2>
+  <div>
+    <label>Description:</label>
+    <p>{{selectedTodo.description}}</p>
+  </div>
+</div>
