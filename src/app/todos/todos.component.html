@@ -1,2 +1,7 @@
-<h2>{{todo.title}}</h2>
-<div><span>{{todo.description}}</span></div>
+<h2>Todo List</h2>
+<ul class="todos">
+  <li *ngFor="let todo of todos">
+    <h4>{{todo.title}}</h4>
+    <p>{{todo.description}}</p>
+  </li>
+</ul>
