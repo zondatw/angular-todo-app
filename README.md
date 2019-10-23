@@ -1,5 +1,8 @@
 # TodoApp
 
+這是一個參照[官方tutorial](https://angular.tw/tutorial)的練習  
+也可以參考我的[gihub.io](https://zondatw.github.io/2019/angular_part_1/)  
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
 
 ## Development server
