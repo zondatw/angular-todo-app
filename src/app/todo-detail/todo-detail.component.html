@@ -1,8 +1,17 @@
 <div *ngIf="todo">
   <h2>{{todo.title}} Detail</h2>
   <div>
-    <label>Description:</label>
-    <p>{{todo.description}}</p>
+    <p>
+      <label>Title:
+        <input [(ngModel)]="todo.title" placeholder="title"/>
+      </label>
+    </p>
+    <p>
+      <label>Description:
+        <input [(ngModel)]="todo.description" placeholder="description"/>
+      </label>
+    </p>
   </div>
 </div>
+<button (click)="save()">save</button>
 <button (click)="goBack()">go back</button>
