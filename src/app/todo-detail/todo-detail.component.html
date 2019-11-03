@@ -1,17 +1,24 @@
-<div *ngIf="todo">
-  <h2>{{todo.title}} Detail</h2>
-  <div>
-    <p>
-      <label>Title:
-        <input [(ngModel)]="todo.title" placeholder="title"/>
-      </label>
-    </p>
-    <p>
-      <label>Description:
-        <input [(ngModel)]="todo.description" placeholder="description"/>
-      </label>
-    </p>
+<div *ngIf="todo" class="container">
+  <div class="row">
+    <div class="col mx-auto" style="text-align: center;">
+      <h2>{{todo.title}} Detail</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 mx-auto">
+      <form>
+        <div class="form-group">
+          <label>Title</label>
+          <input [(ngModel)]="todo.title" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Title"/>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input [(ngModel)]="todo.description" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Description"/>
+        </div>
+        <button type="button" class="btn btn-success" (click)="save()">Save</button>
+        <button type="button" class="btn btn-dark" (click)="goBack()">Go back</button>
+      </form>
+    </div>
   </div>
 </div>
-<button (click)="save()">save</button>
-<button (click)="goBack()">go back</button>
+
